@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Year End Well Being Survey — Trust Health Asia</title>
 <style>
   :root {
@@ -16,7 +16,6 @@
     --border: #d2d2d7;
     --red: #ff3b30;
     --red-bg: #fff1f0;
-    --green: #30b06e;
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   body {
@@ -36,12 +35,7 @@
     padding: 56px 24px 44px;
     text-align: center;
   }
-  header h1 {
-    margin: 0 0 8px;
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
+  header h1 { margin: 0 0 8px; font-size: 32px; font-weight: 700; letter-spacing: -0.02em; }
   header p { margin: 0; font-size: 15px; color: #a1a1a6; font-weight: 400; }
 
   .card {
@@ -61,170 +55,84 @@
     line-height: 1.5;
   }
   .notice strong { color: var(--blue-dark); }
-  .warn-box {
-    background: #fff8e5;
-    border-radius: 14px;
-    padding: 16px 18px;
-    font-size: 13.5px;
-    margin-bottom: 16px;
-  }
+  .warn-box { background: #fff8e5; border-radius: 14px; padding: 16px 18px; font-size: 13.5px; margin-bottom: 16px; }
 
-  .section-title {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--ink);
-    margin: 0 0 4px;
-    letter-spacing: -0.015em;
-  }
-  .section-sub {
-    font-size: 13.5px;
-    color: var(--gray-light);
-    margin: 0 0 22px;
-  }
+  .section-title { font-size: 22px; font-weight: 700; color: var(--ink); margin: 0 0 4px; letter-spacing: -0.015em; }
+  .section-sub { font-size: 13.5px; color: var(--gray-light); margin: 0 0 22px; }
 
-  .q { margin-bottom: 36px; }
+  .q { margin-bottom: 38px; }
   .q:last-child { margin-bottom: 0; }
-  .q-text {
-    font-size: 15.5px;
-    font-weight: 500;
-    margin-bottom: 12px;
-    color: var(--ink);
-  }
+  .q-text { font-size: 15.5px; font-weight: 500; margin-bottom: 14px; color: var(--ink); }
   .q-text .req-star { color: var(--red); margin-left: 3px; }
-  .q-error-msg {
-    color: var(--red);
-    font-size: 12.5px;
-    font-weight: 600;
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
+  .q-error-msg { color: var(--red); font-size: 12.5px; font-weight: 600; margin-top: 10px; display: flex; align-items: center; gap: 5px; }
   .q.has-error .q-text { color: var(--red); }
-  .q.has-error .card-inline-error {
-    border: 1.5px solid var(--red);
-    background: var(--red-bg);
-    border-radius: 12px;
-    padding: 10px 4px;
-  }
 
   input[type=text], input[type=email] {
-    width: 100%;
-    padding: 13px 14px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    font-size: 15px;
-    font-family: inherit;
-    background: #fbfbfd;
-    transition: border-color 0.15s;
+    width: 100%; padding: 13px 14px; border: 1px solid var(--border); border-radius: 12px;
+    font-size: 15px; font-family: inherit; background: #fbfbfd; transition: border-color 0.15s;
   }
-  input[type=text]:focus, input[type=email]:focus {
-    outline: none;
-    border-color: var(--blue);
-    background: white;
-  }
-  .q.has-error input[type=text], .q.has-error input[type=email] {
-    border-color: var(--red);
-    background: var(--red-bg);
-  }
+  input[type=text]:focus, input[type=email]:focus { outline: none; border-color: var(--blue); background: white; }
+  .q.has-error input[type=text], .q.has-error input[type=email] { border-color: var(--red); background: var(--red-bg); }
   textarea {
-    width: 100%;
-    padding: 13px 14px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    font-size: 15px;
-    font-family: inherit;
-    min-height: 76px;
-    resize: vertical;
-    background: #fbfbfd;
+    width: 100%; padding: 13px 14px; border: 1px solid var(--border); border-radius: 12px;
+    font-size: 15px; font-family: inherit; min-height: 76px; resize: vertical; background: #fbfbfd;
   }
   textarea:focus { outline: none; border-color: var(--blue); background: white; }
   .q.has-error textarea { border-color: var(--red); background: var(--red-bg); }
 
-  /* Pill selector (horizontal) */
-  .pill-row {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    -webkit-overflow-scrolling: touch;
-  }
+  .pill-row { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
   .pill {
-    flex: 0 0 auto;
-    padding: 11px 18px;
-    border: 1px solid var(--border);
-    border-radius: 980px;
-    font-size: 13.5px;
-    font-weight: 500;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: all 0.15s;
-    background: #fbfbfd;
-    color: var(--ink);
+    flex: 0 0 auto; padding: 11px 18px; border: 1px solid var(--border); border-radius: 980px;
+    font-size: 13.5px; font-weight: 500; cursor: pointer; white-space: nowrap; transition: all 0.15s;
+    background: #fbfbfd; color: var(--ink);
   }
   .pill.selected { background: var(--ink); color: white; border-color: var(--ink); }
   .q.has-error .pill-row { padding: 8px; background: var(--red-bg); border-radius: 16px; }
 
-  /* Sliders — Apple style: thin track, clean thumb */
-  .slider-wrap { padding: 4px 2px 0; }
-  .slider-track-labels {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    color: var(--gray-light);
-    margin-bottom: 12px;
-    font-weight: 500;
+  /* ---------- Custom horizontal slider (no native <input type=range>) ---------- */
+  .hslider-outer { padding: 8px 14px 0; touch-action: none; }
+  .hslider-track {
+    position: relative;
+    height: 40px;
+    cursor: pointer;
+    user-select: none;
   }
-  input[type=range] {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 4px;
-    border-radius: 2px;
-    background: linear-gradient(to right, var(--blue) 0%, var(--blue) var(--fill,0%), var(--border) var(--fill,0%), var(--border) 100%);
-    outline: none;
-    margin: 10px 0;
+  .hslider-bg {
+    position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%);
+    height: 4px; background: var(--border); border-radius: 2px;
   }
-  input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: white;
-    border: 1px solid rgba(0,0,0,0.08);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.02);
-    cursor: grab;
+  .hslider-fill {
+    position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+    height: 4px; background: var(--blue); border-radius: 2px; width: 0%;
   }
-  input[type=range]::-webkit-slider-thumb:active { cursor: grabbing; transform: scale(1.08); }
-  input[type=range]::-moz-range-thumb {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: white;
-    border: 1px solid rgba(0,0,0,0.08);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-    cursor: grab;
+  .hslider-tick {
+    position: absolute; top: 50%; width: 9px; height: 9px; border-radius: 50%;
+    background: var(--border); transform: translate(-50%,-50%); z-index: 2; cursor: pointer;
   }
+  .hslider-tick.active { background: var(--blue); }
+  .hslider-thumb {
+    position: absolute; top: 50%; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--blue); border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.22);
+    transform: translate(-50%,-50%);
+    z-index: 3; cursor: grab; left: 0%;
+  }
+  .hslider-thumb.unanswered { background: #d2d2d7; box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
+  .hslider-caption-row { display: flex; justify-content: space-between; font-size: 12px; color: var(--gray-light); margin-top: 12px; font-weight: 500; }
   .slider-value-badge {
-    display: inline-block;
-    background: var(--blue);
-    color: white;
-    font-weight: 600;
-    font-size: 12.5px;
-    padding: 5px 13px;
-    border-radius: 980px;
-    margin-top: 8px;
+    display: inline-block; background: var(--blue); color: white; font-weight: 600; font-size: 12.5px;
+    padding: 5px 13px; border-radius: 980px; margin-top: 10px;
   }
   .slider-value-badge.untouched { background: #e8e8ed; color: var(--gray); }
-  .q.has-error input[type=range] {
-    background: linear-gradient(to right, var(--red) 0%, var(--red) var(--fill,0%), #ffd9d6 var(--fill,0%), #ffd9d6 100%);
-  }
+  .q.has-error .hslider-bg { background: #ffd9d6; }
+  .q.has-error .hslider-fill { background: var(--red); }
+  .q.has-error .hslider-thumb.unanswered { background: var(--red-bg); border-color: var(--red); }
   .q.has-error .slider-value-badge.untouched { background: var(--red-bg); color: var(--red); }
 
   .progress-bar {
     position: sticky; top: 0; z-index: 10;
     background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
     padding: 14px 20px; border-bottom: 1px solid rgba(0,0,0,0.06);
   }
   .progress-track { height: 4px; background: #e8e8ed; border-radius: 2px; overflow: hidden; max-width: 640px; margin: 0 auto; }
@@ -234,27 +142,18 @@
   .btn {
     display: block; width: 100%; padding: 15px; border: none; border-radius: 980px;
     font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 10px;
-    transition: transform 0.1s, opacity 0.15s;
-    font-family: inherit;
+    transition: transform 0.1s, opacity 0.15s; font-family: inherit;
   }
   .btn:active { transform: scale(0.985); }
   .btn-primary { background: var(--blue); color: white; }
-  .btn-primary:hover { background: var(--blue-dark); }
   .btn-primary:disabled { background: #d2d2d7; cursor: not-allowed; }
   .btn-secondary { background: #e8e8ed; color: var(--ink); }
-  .btn-ghost { background: transparent; color: var(--gray); font-size: 13px; font-weight: 500; text-decoration: underline; padding: 6px; }
   .nav-row { display: flex; gap: 10px; margin-top: 18px; }
 
-  .crisis-box {
-    background: #fff1f0; border: 1.5px solid var(--red); border-radius: 16px;
-    padding: 20px; margin-bottom: 20px;
-  }
+  .crisis-box { background: #fff1f0; border: 1.5px solid var(--red); border-radius: 16px; padding: 20px; margin-bottom: 20px; }
   .crisis-box h3 { color: var(--red); margin: 0 0 10px; font-size: 17px; font-weight: 700; }
   .crisis-box p { font-size: 14px; margin: 7px 0; }
   .hidden { display: none !important; }
-
-  .footer-link { text-align: center; margin-top: 30px; }
-  .footer-link a { color: var(--gray-light); font-size: 12px; }
 
   .spinner {
     border: 3px solid #e8e8ed; border-top: 3px solid var(--blue);
@@ -281,6 +180,7 @@ const FREQ5 = ["Never","Almost Never","Sometimes","Fairly Often","Very Often"];
 const CBI_FREQ = ["Never","Seldom","Sometimes","Often","Always"];
 const PHQ_FREQ = ["Not at all","Several days","More than half the days","Nearly every day"];
 
+// All rating questions use type "hslider" now: { steps, min (numeric base value), labels (nullable), low/high captions }
 const sections = [
   {
     key: "identity",
@@ -307,70 +207,70 @@ const sections = [
     sub: "Over the past 2 weeks.",
     questions: [
       { id: "sleep_hours", type: "pills", text: "On average, how many hours of sleep do you get per night?", options: ["<4 hrs","4–5 hrs","5–6 hrs","6–7 hrs","7–8 hrs",">8 hrs"] },
-      { id: "sleep_quality", type: "slider", text: "How would you rate your overall sleep quality?", min: 1, max: 5, low: "Very poor", high: "Excellent" },
-      { id: "sleep_rested", type: "slider5", text: "Do you feel rested when you wake up?", labels: ["Never","Rarely","Sometimes","Often","Always"] },
+      { id: "sleep_quality", type: "hslider", text: "How would you rate your overall sleep quality?", steps: 5, min: 1, low: "Very poor", high: "Excellent" },
+      { id: "sleep_rested", type: "hslider", text: "Do you feel rested when you wake up?", steps: 5, min: 0, labels: ["Never","Rarely","Sometimes","Often","Always"] },
       { id: "sleep_disrupt", type: "text", text: "What most disrupts your sleep?" }
     ]
   },
   {
     key: "cbi",
     title: "Burnout",
-    sub: "Copenhagen Burnout Inventory — drag the slider to how often each applies to you.",
+    sub: "Copenhagen Burnout Inventory — drag or tap to show how often each applies to you.",
     questions: [
-      { id: "cbi1", type: "slider5", text: "How often are you tired?", labels: CBI_FREQ },
-      { id: "cbi2", type: "slider5", text: "How often are you physically exhausted?", labels: CBI_FREQ },
-      { id: "cbi3", type: "slider5", text: "How often are you emotionally exhausted?", labels: CBI_FREQ },
-      { id: "cbi4", type: "slider5", text: "How often do you think: \"I can't take it anymore\"?", labels: CBI_FREQ },
-      { id: "cbi5", type: "slider5", text: "How often do you feel worn out?", labels: CBI_FREQ },
-      { id: "cbi6", type: "slider5", text: "How often do you feel weak and susceptible to illness?", labels: CBI_FREQ },
-      { id: "cbi7", type: "slider5", text: "Is your work emotionally exhausting?", labels: CBI_FREQ },
-      { id: "cbi8", type: "slider5", text: "Does it frustrate you that you cannot cope well enough at work?", labels: CBI_FREQ },
-      { id: "cbi9", type: "slider5", text: "Do you feel burnt out because of your work?", labels: CBI_FREQ },
-      { id: "cbi10", type: "slider5", text: "Do you find it hard to work with patients/colleagues?", labels: CBI_FREQ },
-      { id: "cbi11", type: "slider5", text: "Are you exhausted in the morning at the thought of another day at work?", labels: CBI_FREQ },
-      { id: "cbi12", type: "slider5", text: "Do you feel that every working hour is tiring for you?", labels: CBI_FREQ },
-      { id: "cbi13", type: "slider5", text: "Do you feel that you have enough energy for family and friends during leisure time?", labels: CBI_FREQ, reverse: true }
+      { id: "cbi1", type: "hslider", text: "How often are you tired?", steps: 5, min: 0, labels: CBI_FREQ },
+      { id: "cbi2", type: "hslider", text: "How often are you physically exhausted?", steps: 5, min: 0, labels: CBI_FREQ },
+      { id: "cbi3", type: "hslider", text: "How often are you emotionally exhausted?", steps: 5, min: 0, labels: CBI_FREQ },
+      { id: "cbi4", type: "hslider", text: "How often do you think: \"I can't take it anymore\"?", steps: 5, min: 0, labels: CBI_FREQ },
+      { id: "cbi5", type: "hslider", text: "How often do you feel worn out?", steps: 5, min: 0, labels: CBI_FREQ },
+      { id: "cbi6", type: "hslider", text: "How often do you feel weak and susceptible to illness?", steps: 5, min: 0, labels: CBI_FREQ },
+      { id: "cbi7", type: "hslider", text: "Is your work emotionally exhausting?", steps: 5, min: 0, labels: CBI_FREQ },
+      { id: "cbi8", type: "hslider", text: "Does it frustrate you that you cannot cope well enough at work?", steps: 5, min: 0, labels: CBI_FREQ },
+      { id: "cbi9", type: "hslider", text: "Do you feel burnt out because of your work?", steps: 5, min: 0, labels: CBI_FREQ },
+      { id: "cbi10", type: "hslider", text: "Do you find it hard to work with patients/colleagues?", steps: 5, min: 0, labels: CBI_FREQ },
+      { id: "cbi11", type: "hslider", text: "Are you exhausted in the morning at the thought of another day at work?", steps: 5, min: 0, labels: CBI_FREQ },
+      { id: "cbi12", type: "hslider", text: "Do you feel that every working hour is tiring for you?", steps: 5, min: 0, labels: CBI_FREQ },
+      { id: "cbi13", type: "hslider", text: "Do you feel that you have enough energy for family and friends during leisure time?", steps: 5, min: 0, labels: CBI_FREQ, reverse: true }
     ]
   },
   {
     key: "pss",
     title: "Stress",
-    sub: "In the last month, how often have you felt this way? Drag the slider.",
+    sub: "In the last month, how often have you felt this way? Drag or tap to answer.",
     questions: [
-      { id: "pss1", type: "slider5", text: "Felt unable to control the important things in your life", labels: FREQ5 },
-      { id: "pss2", type: "slider5", text: "Felt confident about your ability to handle personal problems", labels: FREQ5, reverse: true },
-      { id: "pss3", type: "slider5", text: "Felt that things were going your way", labels: FREQ5, reverse: true },
-      { id: "pss4", type: "slider5", text: "Felt difficulties were piling up so high you could not overcome them", labels: FREQ5 }
+      { id: "pss1", type: "hslider", text: "Felt unable to control the important things in your life", steps: 5, min: 0, labels: FREQ5 },
+      { id: "pss2", type: "hslider", text: "Felt confident about your ability to handle personal problems", steps: 5, min: 0, labels: FREQ5, reverse: true },
+      { id: "pss3", type: "hslider", text: "Felt that things were going your way", steps: 5, min: 0, labels: FREQ5, reverse: true },
+      { id: "pss4", type: "hslider", text: "Felt difficulties were piling up so high you could not overcome them", steps: 5, min: 0, labels: FREQ5 }
     ]
   },
   {
     key: "gad7",
     title: "Anxiety Screening (GAD-7)",
-    sub: "Over the last 2 weeks, how often bothered — drag the slider.",
+    sub: "Over the last 2 weeks, how often bothered — drag or tap to answer.",
     questions: [
-      { id: "gad1", type: "slider4", text: "Feeling nervous, anxious, or on edge", labels: PHQ_FREQ },
-      { id: "gad2", type: "slider4", text: "Not being able to stop or control worrying", labels: PHQ_FREQ },
-      { id: "gad3", type: "slider4", text: "Worrying too much about different things", labels: PHQ_FREQ },
-      { id: "gad4", type: "slider4", text: "Trouble relaxing", labels: PHQ_FREQ },
-      { id: "gad5", type: "slider4", text: "Being so restless that it is hard to sit still", labels: PHQ_FREQ },
-      { id: "gad6", type: "slider4", text: "Becoming easily annoyed or irritable", labels: PHQ_FREQ },
-      { id: "gad7q", type: "slider4", text: "Feeling afraid as if something awful might happen", labels: PHQ_FREQ }
+      { id: "gad1", type: "hslider", text: "Feeling nervous, anxious, or on edge", steps: 4, min: 0, labels: PHQ_FREQ },
+      { id: "gad2", type: "hslider", text: "Not being able to stop or control worrying", steps: 4, min: 0, labels: PHQ_FREQ },
+      { id: "gad3", type: "hslider", text: "Worrying too much about different things", steps: 4, min: 0, labels: PHQ_FREQ },
+      { id: "gad4", type: "hslider", text: "Trouble relaxing", steps: 4, min: 0, labels: PHQ_FREQ },
+      { id: "gad5", type: "hslider", text: "Being so restless that it is hard to sit still", steps: 4, min: 0, labels: PHQ_FREQ },
+      { id: "gad6", type: "hslider", text: "Becoming easily annoyed or irritable", steps: 4, min: 0, labels: PHQ_FREQ },
+      { id: "gad7q", type: "hslider", text: "Feeling afraid as if something awful might happen", steps: 4, min: 0, labels: PHQ_FREQ }
     ]
   },
   {
     key: "phq9",
     title: "Depression Screening (PHQ-9)",
-    sub: "Over the last 2 weeks, how often bothered — drag the slider.",
+    sub: "Over the last 2 weeks, how often bothered — drag or tap to answer.",
     questions: [
-      { id: "phq1", type: "slider4", text: "Little interest or pleasure in doing things", labels: PHQ_FREQ },
-      { id: "phq2", type: "slider4", text: "Feeling down, depressed, or hopeless", labels: PHQ_FREQ },
-      { id: "phq3", type: "slider4", text: "Trouble falling/staying asleep, or sleeping too much", labels: PHQ_FREQ },
-      { id: "phq4q", type: "slider4", text: "Feeling tired or having little energy", labels: PHQ_FREQ },
-      { id: "phq5", type: "slider4", text: "Poor appetite or overeating", labels: PHQ_FREQ },
-      { id: "phq6", type: "slider4", text: "Feeling bad about yourself, or that you've let yourself/family down", labels: PHQ_FREQ },
-      { id: "phq7", type: "slider4", text: "Trouble concentrating on things", labels: PHQ_FREQ },
-      { id: "phq8", type: "slider4", text: "Moving/speaking slowly, or being fidgety/restless", labels: PHQ_FREQ },
-      { id: "phq9_selfharm", type: "slider4", text: "Thoughts that you would be better off dead or of hurting yourself", labels: PHQ_FREQ, isSelfHarm: true }
+      { id: "phq1", type: "hslider", text: "Little interest or pleasure in doing things", steps: 4, min: 0, labels: PHQ_FREQ },
+      { id: "phq2", type: "hslider", text: "Feeling down, depressed, or hopeless", steps: 4, min: 0, labels: PHQ_FREQ },
+      { id: "phq3", type: "hslider", text: "Trouble falling/staying asleep, or sleeping too much", steps: 4, min: 0, labels: PHQ_FREQ },
+      { id: "phq4q", type: "hslider", text: "Feeling tired or having little energy", steps: 4, min: 0, labels: PHQ_FREQ },
+      { id: "phq5", type: "hslider", text: "Poor appetite or overeating", steps: 4, min: 0, labels: PHQ_FREQ },
+      { id: "phq6", type: "hslider", text: "Feeling bad about yourself, or that you've let yourself/family down", steps: 4, min: 0, labels: PHQ_FREQ },
+      { id: "phq7", type: "hslider", text: "Trouble concentrating on things", steps: 4, min: 0, labels: PHQ_FREQ },
+      { id: "phq8", type: "hslider", text: "Moving/speaking slowly, or being fidgety/restless", steps: 4, min: 0, labels: PHQ_FREQ },
+      { id: "phq9_selfharm", type: "hslider", text: "Thoughts that you would be better off dead or of hurting yourself", steps: 4, min: 0, labels: PHQ_FREQ, isSelfHarm: true }
     ]
   },
   {
@@ -385,7 +285,7 @@ const sections = [
 ];
 
 // ---------------- STATE ----------------
-const STORAGE_KEY = "yewb_survey_progress_v2";
+const STORAGE_KEY = "yewb_survey_progress_v3";
 
 function loadSavedProgress() {
   try {
@@ -592,6 +492,8 @@ function renderSurvey() {
   `;
   window._showResumeBanner = false;
 
+  attachSliders();
+
   if (currentErrors.size > 0) {
     const firstErrorEl = document.querySelector(".q.has-error");
     if (firstErrorEl) firstErrorEl.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -603,7 +505,7 @@ function isAnswered(q) {
   if (q.type === "textinput") return !!(v && v.trim());
   if (q.type === "text") return !!(v && v.trim());
   if (q.type === "pills") return v !== undefined && v !== null && v !== "";
-  if (q.type === "slider" || q.type === "slider5" || q.type === "slider4") return !!state.touched[q.id];
+  if (q.type === "hslider") return !!state.touched[q.id];
   return true;
 }
 
@@ -636,40 +538,36 @@ function renderQuestion(q) {
     `;
   }
 
-  if (q.type === "slider") {
+  if (q.type === "hslider") {
     const touched = !!state.touched[q.id];
-    const displayVal = touched ? val : q.min;
-    const fillPct = ((displayVal - q.min) / (q.max - q.min)) * 100;
-    return `
-      <div class="q ${hasError ? 'has-error' : ''}">
-        <div class="q-text">${q.text}<span class="req-star">*</span></div>
-        <div class="slider-wrap">
-          <input type="range" min="${q.min}" max="${q.max}" step="1" value="${displayVal}"
-            style="--fill:${fillPct}%"
-            oninput="handleSliderInput('${q.id}', this)">
-          <div class="slider-track-labels"><span>${q.low}</span><span>${q.high}</span></div>
-          <span class="slider-value-badge ${touched?'':'untouched'}" id="badge-${q.id}">${touched ? displayVal : 'Slide to answer'}</span>
-        </div>
-        ${errMsg}
-      </div>
-    `;
-  }
+    const idx = touched ? (val - q.min) : 0;
+    const steps = q.steps;
+    const pct = steps === 1 ? 0 : (idx / (steps - 1)) * 100;
+    const labels = q.labels || null;
+    const badgeText = touched ? (labels ? labels[idx] : val) : (labels ? 'Tap or drag to answer' : 'Tap or drag to answer');
+    const lowCaption = labels ? labels[0] : q.low;
+    const highCaption = labels ? labels[labels.length - 1] : q.high;
 
-  if (q.type === "slider5" || q.type === "slider4") {
-    const max = q.type === "slider5" ? 4 : 3;
-    const touched = !!state.touched[q.id];
-    const displayVal = touched ? val : 0;
-    const fillPct = (displayVal / max) * 100;
+    let ticks = "";
+    for (let i = 0; i < steps; i++) {
+      const tPct = steps === 1 ? 0 : (i / (steps - 1)) * 100;
+      const active = touched && i <= idx;
+      ticks += `<div class="hslider-tick ${active ? 'active' : ''}" style="left:${tPct}%" data-index="${i}"></div>`;
+    }
+
     return `
       <div class="q ${hasError ? 'has-error' : ''}">
         <div class="q-text">${q.text}<span class="req-star">*</span></div>
-        <div class="slider-wrap">
-          <input type="range" min="0" max="${max}" step="1" value="${displayVal}"
-            style="--fill:${fillPct}%"
-            oninput="handleSliderInput('${q.id}', this, ${JSON.stringify(q.labels)})">
-          <div class="slider-track-labels"><span>${q.labels[0]}</span><span>${q.labels[q.labels.length-1]}</span></div>
-          <span class="slider-value-badge ${touched?'':'untouched'}" id="badge-${q.id}">${touched ? q.labels[displayVal] : 'Slide to answer'}</span>
+        <div class="hslider-outer" data-id="${q.id}" data-steps="${steps}" data-min="${q.min}" data-labels='${labels ? JSON.stringify(labels) : "null"}'>
+          <div class="hslider-track">
+            <div class="hslider-bg"></div>
+            <div class="hslider-fill" style="width:${touched ? pct : 0}%"></div>
+            ${ticks}
+            <div class="hslider-thumb ${touched ? '' : 'unanswered'}" style="left:${touched ? pct : 0}%"></div>
+          </div>
+          <div class="hslider-caption-row"><span>${lowCaption}</span><span>${highCaption}</span></div>
         </div>
+        <span class="slider-value-badge ${touched ? '' : 'untouched'}" id="badge-${q.id}">${badgeText}</span>
         ${errMsg}
       </div>
     `;
@@ -687,28 +585,92 @@ function renderQuestion(q) {
   return "";
 }
 
-function handleSliderInput(id, el, labels) {
-  const v = Number(el.value);
-  const min = Number(el.min), max = Number(el.max);
-  const fillPct = ((v - min) / (max - min)) * 100;
-  el.style.setProperty('--fill', fillPct + '%');
-  const badge = document.getElementById('badge-' + id);
-  if (badge) {
-    badge.textContent = labels ? labels[v] : v;
-    badge.classList.remove('untouched');
-  }
-  state.answers[id] = v;
-  state.touched[id] = true;
-  if (currentErrors.has(id)) {
-    currentErrors.delete(id);
-    const qEl = badge ? badge.closest('.q') : null;
-    if (qEl) {
-      qEl.classList.remove('has-error');
-      const msg = qEl.querySelector('.q-error-msg');
-      if (msg) msg.remove();
+// ---------------- CUSTOM SLIDER INTERACTION ----------------
+function attachSliders() {
+  document.querySelectorAll(".hslider-outer").forEach(container => {
+    const id = container.dataset.id;
+    const steps = parseInt(container.dataset.steps, 10);
+    const minVal = parseInt(container.dataset.min, 10);
+    const labels = JSON.parse(container.dataset.labels || "null");
+    const track = container.querySelector(".hslider-track");
+    const thumb = container.querySelector(".hslider-thumb");
+    const fill = container.querySelector(".hslider-fill");
+    const ticks = container.querySelectorAll(".hslider-tick");
+    const badge = document.getElementById("badge-" + id);
+    const qEl = container.closest(".q");
+
+    function pctForIndex(i) { return steps === 1 ? 0 : (i / (steps - 1)) * 100; }
+
+    function applyIndex(idx) {
+      idx = Math.max(0, Math.min(steps - 1, idx));
+      const pct = pctForIndex(idx);
+      thumb.style.left = pct + "%";
+      fill.style.width = pct + "%";
+      thumb.classList.remove("unanswered");
+      ticks.forEach((t, i) => t.classList.toggle("active", i <= idx));
+
+      const value = minVal + idx;
+      state.answers[id] = value;
+      state.touched[id] = true;
+
+      if (badge) {
+        badge.textContent = labels ? labels[idx] : value;
+        badge.classList.remove("untouched");
+      }
+      if (qEl && qEl.classList.contains("has-error")) {
+        qEl.classList.remove("has-error");
+        const msg = qEl.querySelector(".q-error-msg");
+        if (msg) msg.remove();
+        currentErrors.delete(id);
+      }
+      saveProgress();
     }
-  }
-  saveProgress();
+
+    function idxFromClientX(clientX) {
+      const rect = track.getBoundingClientRect();
+      let ratio = rect.width === 0 ? 0 : (clientX - rect.left) / rect.width;
+      ratio = Math.max(0, Math.min(1, ratio));
+      return Math.round(ratio * (steps - 1));
+    }
+
+    let dragging = false;
+
+    function onDown(e) {
+      dragging = true;
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      applyIndex(idxFromClientX(clientX));
+      if (e.cancelable) e.preventDefault();
+    }
+    function onMove(e) {
+      if (!dragging) return;
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      applyIndex(idxFromClientX(clientX));
+      if (e.cancelable) e.preventDefault();
+    }
+    function onUp() { dragging = false; }
+
+    // Pointer events (covers mouse + most modern touch)
+    track.addEventListener("pointerdown", onDown);
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
+    window.addEventListener("pointercancel", onUp);
+
+    // Touch fallback for older/webview browsers that don't fire pointer events reliably
+    track.addEventListener("touchstart", onDown, { passive: false });
+    track.addEventListener("touchmove", onMove, { passive: false });
+    track.addEventListener("touchend", onUp);
+
+    // Mouse fallback
+    track.addEventListener("mousedown", onDown);
+
+    // Tap directly on a tick/label for precise selection
+    ticks.forEach(t => {
+      t.addEventListener("click", (e) => {
+        e.stopPropagation();
+        applyIndex(parseInt(t.dataset.index, 10));
+      });
+    });
+  });
 }
 
 function setAnswer(id, value) {
@@ -719,8 +681,6 @@ function setAnswer(id, value) {
   }
   if (event && event.type === "click") {
     render();
-  } else if (currentErrors.has(id) === false && document.querySelector(`[data-q-id="${id}"]`)) {
-    // no-op, error already cleared visually on next render
   }
 }
 
