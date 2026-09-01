@@ -6,90 +6,142 @@
 <title>Year End Well Being Survey — Trust Health Asia</title>
 <style>
   :root {
-    --navy: #0f2439;
-    --teal: #1a7a6e;
-    --teal-light: #e6f4f2;
-    --amber: #c9862c;
-    --red: #b3452c;
-    --gray: #6b7280;
-    --bg: #f7f8fa;
+    --blue: #0071e3;
+    --blue-dark: #0058b0;
+    --ink: #1d1d1f;
+    --gray: #6e6e73;
+    --gray-light: #86868b;
+    --bg: #f5f5f7;
     --card: #ffffff;
-    --border: #e2e5ea;
+    --border: #d2d2d7;
+    --red: #ff3b30;
+    --red-bg: #fff1f0;
+    --green: #30b06e;
   }
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
     background: var(--bg);
     margin: 0;
     padding: 0;
-    color: #1a1a1a;
-    line-height: 1.5;
+    color: var(--ink);
+    line-height: 1.47;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 680px; margin: 0 auto; padding: 24px 18px 80px; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 28px 20px 90px; }
   header {
-    background: var(--navy);
+    background: linear-gradient(180deg, #000000 0%, #1d1d1f 100%);
     color: white;
-    padding: 28px 18px;
+    padding: 56px 24px 44px;
     text-align: center;
   }
-  header h1 { margin: 0 0 6px; font-size: 20px; font-weight: 600; }
-  header p { margin: 0; font-size: 13px; opacity: 0.85; }
+  header h1 {
+    margin: 0 0 8px;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  header p { margin: 0; font-size: 15px; color: #a1a1a6; font-weight: 400; }
+
   .card {
     background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 16px;
+    border-radius: 18px;
+    padding: 26px 24px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
   }
   .notice {
-    background: var(--teal-light);
-    border-left: 4px solid var(--teal);
-    padding: 14px 16px;
-    border-radius: 8px;
+    background: #eef6ff;
+    border-radius: 14px;
+    padding: 16px 18px;
     font-size: 13.5px;
+    color: #1d1d1f;
     margin-bottom: 20px;
+    line-height: 1.5;
   }
+  .notice strong { color: var(--blue-dark); }
   .warn-box {
-    background: #fff4e0;
-    border-left: 4px solid var(--amber);
-    padding: 14px 16px;
-    border-radius: 8px;
-    font-size: 13px;
+    background: #fff8e5;
+    border-radius: 14px;
+    padding: 16px 18px;
+    font-size: 13.5px;
     margin-bottom: 16px;
   }
+
   .section-title {
-    font-size: 15px;
+    font-size: 22px;
     font-weight: 700;
-    color: var(--navy);
+    color: var(--ink);
     margin: 0 0 4px;
+    letter-spacing: -0.015em;
   }
   .section-sub {
-    font-size: 12.5px;
-    color: var(--gray);
-    margin: 0 0 16px;
+    font-size: 13.5px;
+    color: var(--gray-light);
+    margin: 0 0 22px;
   }
-  .q { margin-bottom: 26px; }
-  .q-text { font-size: 14px; font-weight: 500; margin-bottom: 12px; }
+
+  .q { margin-bottom: 36px; }
+  .q:last-child { margin-bottom: 0; }
+  .q-text {
+    font-size: 15.5px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+  .q-text .req-star { color: var(--red); margin-left: 3px; }
+  .q-error-msg {
+    color: var(--red);
+    font-size: 12.5px;
+    font-weight: 600;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .q.has-error .q-text { color: var(--red); }
+  .q.has-error .card-inline-error {
+    border: 1.5px solid var(--red);
+    background: var(--red-bg);
+    border-radius: 12px;
+    padding: 10px 4px;
+  }
+
   input[type=text], input[type=email] {
     width: 100%;
-    padding: 11px 12px;
+    padding: 13px 14px;
     border: 1px solid var(--border);
-    border-radius: 8px;
-    font-size: 14px;
+    border-radius: 12px;
+    font-size: 15px;
     font-family: inherit;
+    background: #fbfbfd;
+    transition: border-color 0.15s;
+  }
+  input[type=text]:focus, input[type=email]:focus {
+    outline: none;
+    border-color: var(--blue);
+    background: white;
+  }
+  .q.has-error input[type=text], .q.has-error input[type=email] {
+    border-color: var(--red);
+    background: var(--red-bg);
   }
   textarea {
     width: 100%;
-    padding: 11px 12px;
+    padding: 13px 14px;
     border: 1px solid var(--border);
-    border-radius: 8px;
-    font-size: 14px;
+    border-radius: 12px;
+    font-size: 15px;
     font-family: inherit;
-    min-height: 70px;
+    min-height: 76px;
     resize: vertical;
+    background: #fbfbfd;
   }
+  textarea:focus { outline: none; border-color: var(--blue); background: white; }
+  .q.has-error textarea { border-color: var(--red); background: var(--red-bg); }
 
-  /* Pill selector (horizontal) for categorical questions */
+  /* Pill selector (horizontal) */
   .pill-row {
     display: flex;
     gap: 8px;
@@ -99,108 +151,119 @@
   }
   .pill {
     flex: 0 0 auto;
-    padding: 10px 16px;
+    padding: 11px 18px;
     border: 1px solid var(--border);
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
+    border-radius: 980px;
+    font-size: 13.5px;
+    font-weight: 500;
     cursor: pointer;
     white-space: nowrap;
     transition: all 0.15s;
-    background: white;
+    background: #fbfbfd;
+    color: var(--ink);
   }
-  .pill.selected { background: var(--teal); color: white; border-color: var(--teal); }
+  .pill.selected { background: var(--ink); color: white; border-color: var(--ink); }
+  .q.has-error .pill-row { padding: 8px; background: var(--red-bg); border-radius: 16px; }
 
-  /* Slider styles */
-  .slider-wrap { padding: 6px 4px 0; }
+  /* Sliders — Apple style: thin track, clean thumb */
+  .slider-wrap { padding: 4px 2px 0; }
   .slider-track-labels {
     display: flex;
     justify-content: space-between;
-    font-size: 11px;
-    color: var(--gray);
-    margin-bottom: 10px;
+    font-size: 12px;
+    color: var(--gray-light);
+    margin-bottom: 12px;
+    font-weight: 500;
   }
   input[type=range] {
     -webkit-appearance: none;
     width: 100%;
-    height: 8px;
-    border-radius: 4px;
-    background: linear-gradient(to right, var(--teal) 0%, var(--teal) var(--fill,0%), var(--border) var(--fill,0%), var(--border) 100%);
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(to right, var(--blue) 0%, var(--blue) var(--fill,0%), var(--border) var(--fill,0%), var(--border) 100%);
     outline: none;
-    margin: 8px 0;
+    margin: 10px 0;
   }
   input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
-    background: var(--navy);
-    border: 3px solid white;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    background: white;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.02);
     cursor: grab;
   }
-  input[type=range]::-webkit-slider-thumb:active { cursor: grabbing; }
+  input[type=range]::-webkit-slider-thumb:active { cursor: grabbing; transform: scale(1.08); }
   input[type=range]::-moz-range-thumb {
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
-    background: var(--navy);
-    border: 3px solid white;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    background: white;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
     cursor: grab;
   }
   .slider-value-badge {
     display: inline-block;
-    background: var(--teal);
+    background: var(--blue);
     color: white;
-    font-weight: 700;
-    font-size: 13px;
-    padding: 4px 12px;
-    border-radius: 14px;
-    margin-top: 6px;
+    font-weight: 600;
+    font-size: 12.5px;
+    padding: 5px 13px;
+    border-radius: 980px;
+    margin-top: 8px;
   }
-  .slider-value-badge.untouched { background: var(--gray); }
+  .slider-value-badge.untouched { background: #e8e8ed; color: var(--gray); }
+  .q.has-error input[type=range] {
+    background: linear-gradient(to right, var(--red) 0%, var(--red) var(--fill,0%), #ffd9d6 var(--fill,0%), #ffd9d6 100%);
+  }
+  .q.has-error .slider-value-badge.untouched { background: var(--red-bg); color: var(--red); }
 
   .progress-bar {
     position: sticky; top: 0; z-index: 10;
-    background: white; padding: 10px 18px; border-bottom: 1px solid var(--border);
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 14px 20px; border-bottom: 1px solid rgba(0,0,0,0.06);
   }
-  .progress-track { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
-  .progress-fill { height: 100%; background: var(--teal); transition: width 0.3s; }
+  .progress-track { height: 4px; background: #e8e8ed; border-radius: 2px; overflow: hidden; max-width: 640px; margin: 0 auto; }
+  .progress-fill { height: 100%; background: var(--blue); transition: width 0.3s; border-radius: 2px; }
+  .progress-label { max-width: 640px; margin: 0 auto 8px; font-size: 12px; color: var(--gray-light); font-weight: 500; }
+
   .btn {
-    display: block; width: 100%; padding: 14px; border: none; border-radius: 10px;
-    font-size: 15px; font-weight: 700; cursor: pointer; margin-top: 10px;
+    display: block; width: 100%; padding: 15px; border: none; border-radius: 980px;
+    font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 10px;
+    transition: transform 0.1s, opacity 0.15s;
+    font-family: inherit;
   }
-  .btn-primary { background: var(--teal); color: white; }
-  .btn-primary:disabled { background: #a8c4c0; cursor: not-allowed; }
-  .btn-secondary { background: white; color: var(--navy); border: 1px solid var(--border); }
+  .btn:active { transform: scale(0.985); }
+  .btn-primary { background: var(--blue); color: white; }
+  .btn-primary:hover { background: var(--blue-dark); }
+  .btn-primary:disabled { background: #d2d2d7; cursor: not-allowed; }
+  .btn-secondary { background: #e8e8ed; color: var(--ink); }
   .btn-ghost { background: transparent; color: var(--gray); font-size: 13px; font-weight: 500; text-decoration: underline; padding: 6px; }
-  .nav-row { display: flex; gap: 10px; margin-top: 16px; }
+  .nav-row { display: flex; gap: 10px; margin-top: 18px; }
+
   .crisis-box {
-    background: #fdeeea; border: 2px solid var(--red); border-radius: 10px;
-    padding: 18px; margin-bottom: 20px;
+    background: #fff1f0; border: 1.5px solid var(--red); border-radius: 16px;
+    padding: 20px; margin-bottom: 20px;
   }
-  .crisis-box h3 { color: var(--red); margin: 0 0 10px; font-size: 15px; }
-  .crisis-box p { font-size: 13.5px; margin: 6px 0; }
+  .crisis-box h3 { color: var(--red); margin: 0 0 10px; font-size: 17px; font-weight: 700; }
+  .crisis-box p { font-size: 14px; margin: 7px 0; }
   .hidden { display: none !important; }
-  .badge {
-    display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.3px;
-  }
-  .badge-min { background: #e6f4f2; color: var(--teal); }
-  .badge-mild { background: #fff4e0; color: var(--amber); }
-  .badge-mod { background: #ffe6d9; color: #c25a1e; }
-  .badge-sev { background: #fdeeea; color: var(--red); }
-  table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
-  th { color: var(--gray); font-weight: 600; font-size: 11px; text-transform: uppercase; }
+
   .footer-link { text-align: center; margin-top: 30px; }
-  .footer-link a { color: var(--gray); font-size: 12px; }
+  .footer-link a { color: var(--gray-light); font-size: 12px; }
+
   .spinner {
-    border: 3px solid var(--border); border-top: 3px solid var(--teal);
-    border-radius: 50%; width: 28px; height: 28px; animation: spin 0.8s linear infinite; margin: 0 auto;
+    border: 3px solid #e8e8ed; border-top: 3px solid var(--blue);
+    border-radius: 50%; width: 32px; height: 32px; animation: spin 0.8s linear infinite; margin: 0 auto;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
+
+  .personal-line { font-size: 14.5px; color: var(--gray); margin-top: 10px; }
+  .required-note { font-size: 12.5px; color: var(--gray-light); text-align: center; margin: 14px 0 0; }
 </style>
 </head>
 <body>
@@ -245,8 +308,8 @@ const sections = [
     questions: [
       { id: "sleep_hours", type: "pills", text: "On average, how many hours of sleep do you get per night?", options: ["<4 hrs","4–5 hrs","5–6 hrs","6–7 hrs","7–8 hrs",">8 hrs"] },
       { id: "sleep_quality", type: "slider", text: "How would you rate your overall sleep quality?", min: 1, max: 5, low: "Very poor", high: "Excellent" },
-      { id: "sleep_rested", type: "slider", text: "Do you feel rested when you wake up?", min: 0, max: 4, labels: ["Never","Rarely","Sometimes","Often","Always"] },
-      { id: "sleep_disrupt", type: "text", text: "What most disrupts your sleep? (optional)" }
+      { id: "sleep_rested", type: "slider5", text: "Do you feel rested when you wake up?", labels: ["Never","Rarely","Sometimes","Often","Always"] },
+      { id: "sleep_disrupt", type: "text", text: "What most disrupts your sleep?" }
     ]
   },
   {
@@ -313,7 +376,7 @@ const sections = [
   {
     key: "feedback",
     title: "Open Feedback",
-    sub: "Optional.",
+    sub: "",
     questions: [
       { id: "fb1", type: "text", text: "Anything about your workload, hours, or wellbeing you'd like leadership to know?" },
       { id: "fb2", type: "text", text: "What would help you most right now?" }
@@ -322,8 +385,39 @@ const sections = [
 ];
 
 // ---------------- STATE ----------------
-let state = { step: 0, answers: {} };
-let view = "intro"; // intro | checking | blocked | survey | submitting | selfharm | done | error
+const STORAGE_KEY = "yewb_survey_progress_v2";
+
+function loadSavedProgress() {
+  try {
+    const raw = sessionStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw);
+  } catch (e) { return null; }
+}
+function saveProgress() {
+  try {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ step: state.step, answers: state.answers, touched: state.touched }));
+  } catch (e) {}
+}
+function clearProgress() {
+  try { sessionStorage.removeItem(STORAGE_KEY); } catch (e) {}
+}
+
+const saved = loadSavedProgress();
+let state = saved
+  ? { step: saved.step, answers: saved.answers, touched: saved.touched || {} }
+  : { step: 0, answers: {}, touched: {} };
+let view = saved ? "survey" : "intro";
+let currentErrors = new Set();
+window._showResumeBanner = !!saved;
+
+window.addEventListener("beforeunload", function (e) {
+  if (view === "survey" || view === "checking" || view === "submitting") {
+    e.preventDefault();
+    e.returnValue = "";
+    return "";
+  }
+});
 
 // ---------------- SCORING ----------------
 function scoreSurvey(a) {
@@ -374,10 +468,9 @@ async function checkEmailExists(email) {
     return !!data.exists;
   } catch (e) {
     console.error("Email check failed", e);
-    return null; // null = couldn't verify, proceed with caution
+    return null;
   }
 }
-
 async function submitToSheet(row) {
   try {
     await fetch(SHEET_API_URL, {
@@ -413,10 +506,13 @@ function renderIntro() {
     </header>
     <div class="wrap">
       <div class="notice">
-        This survey collects your name and email so that, if your responses indicate you may need support, someone can reach out to you confidentially. Your individual responses will only be reviewed by designated leadership and will not affect your employment. By continuing, you agree to this.
+        Hi there — this survey is for <strong>you</strong>. It only takes about 6–8 minutes, and every answer helps us understand how you're really doing this year — your sleep, your stress, and your overall wellbeing — so we can support you and the team better.
+        <br><br>
+        We collect your name and email so that, if anything you share suggests you might need support, someone can reach out to you personally and confidentially. Your individual responses will only be reviewed by designated leadership and will never affect your employment.
       </div>
       <div class="card">
-        <p style="font-size:14px;">Takes about 6–8 minutes. Covers sleep, burnout, stress, and validated anxiety/depression screening (GAD-7, PHQ-9). <strong>Limited to one submission per email.</strong></p>
+        <p style="font-size:14.5px; margin: 0 0 4px;">Every question in this survey is required — please answer honestly and completely so we get the full picture.</p>
+        <p class="personal-line">Takes about 6–8 minutes. One submission per person.</p>
         <button class="btn btn-primary" onclick="startSurvey()">Start Survey</button>
       </div>
     </div>
@@ -424,26 +520,28 @@ function renderIntro() {
 }
 
 function startSurvey() {
-  view = "survey"; state.step = 0; state.answers = {};
+  clearProgress();
+  view = "survey"; state.step = 0; state.answers = {}; state.touched = {};
+  currentErrors = new Set();
   render();
 }
 
 function renderChecking() {
   app.innerHTML = `
-    <div class="wrap" style="padding-top:80px; text-align:center;">
+    <div class="wrap" style="padding-top:100px; text-align:center;">
       <div class="spinner"></div>
-      <p style="color:var(--gray); margin-top:16px; font-size:14px;">Checking your email...</p>
+      <p style="color:var(--gray-light); margin-top:18px; font-size:14px;">Checking your email…</p>
     </div>
   `;
 }
 
 function renderBlocked() {
   app.innerHTML = `
-    <div class="wrap" style="padding-top:60px;">
+    <div class="wrap" style="padding-top:70px;">
       <div class="card" style="text-align:center;">
-        <h2 style="color:var(--red);">Already Submitted</h2>
-        <p style="font-size:14px;color:var(--gray);">A response has already been recorded for this email address. This survey allows only one submission per person.</p>
-        <p style="font-size:13px;color:var(--gray);">If you believe this is an error, please contact your administrator.</p>
+        <h2 style="color:var(--red); font-size:20px;">Already Submitted</h2>
+        <p style="font-size:14.5px;color:var(--gray);">A response has already been recorded for this email address. This survey allows only one submission per person.</p>
+        <p style="font-size:13px;color:var(--gray-light);">If you believe this is an error, please contact your administrator.</p>
         <button class="btn btn-secondary" onclick="view='intro'; render();" style="margin-top:16px;">Back</button>
       </div>
     </div>
@@ -452,7 +550,7 @@ function renderBlocked() {
 
 function renderError() {
   app.innerHTML = `
-    <div class="wrap" style="padding-top:60px;">
+    <div class="wrap" style="padding-top:70px;">
       <div class="warn-box">
         We couldn't reach the server to verify or save your response right now. Please check your internet connection and try again in a moment.
       </div>
@@ -464,16 +562,22 @@ function renderError() {
 function renderSurvey() {
   const sec = sections[state.step];
   const totalSteps = sections.length;
-  const pct = Math.round((state.step / totalSteps) * 100);
+  const pct = Math.round(((state.step) / totalSteps) * 100);
 
   let qHtml = "";
   sec.questions.forEach(q => { qHtml += renderQuestion(q); });
 
+  const resumeBanner = window._showResumeBanner
+    ? `<div class="notice" style="margin-bottom:14px;">Welcome back — your progress has been saved and picked up right where you left off.</div>`
+    : "";
+
   app.innerHTML = `
     <div class="progress-bar">
+      <div class="progress-label">Step ${state.step + 1} of ${totalSteps}</div>
       <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
     </div>
     <div class="wrap">
+      ${resumeBanner}
       <div class="card">
         <div class="section-title">${sec.title}</div>
         ${sec.sub ? `<div class="section-sub">${sec.sub}</div>` : ""}
@@ -483,77 +587,100 @@ function renderSurvey() {
         ${state.step > 0 ? `<button class="btn btn-secondary" onclick="prevStep()">Back</button>` : ""}
         <button class="btn btn-primary" onclick="nextStep()">${state.step === totalSteps-1 ? "Submit" : "Next"}</button>
       </div>
+      <p class="required-note">All questions are required.</p>
     </div>
   `;
+  window._showResumeBanner = false;
+
+  if (currentErrors.size > 0) {
+    const firstErrorEl = document.querySelector(".q.has-error");
+    if (firstErrorEl) firstErrorEl.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+}
+
+function isAnswered(q) {
+  const v = state.answers[q.id];
+  if (q.type === "textinput") return !!(v && v.trim());
+  if (q.type === "text") return !!(v && v.trim());
+  if (q.type === "pills") return v !== undefined && v !== null && v !== "";
+  if (q.type === "slider" || q.type === "slider5" || q.type === "slider4") return !!state.touched[q.id];
+  return true;
 }
 
 function renderQuestion(q) {
   const val = state.answers[q.id];
+  const hasError = currentErrors.has(q.id);
+  const errMsg = hasError ? `<div class="q-error-msg">⚠ Please answer this question to continue</div>` : "";
 
   if (q.type === "textinput") {
     return `
-      <div class="q">
-        <div class="q-text">${q.text}</div>
+      <div class="q ${hasError ? 'has-error' : ''}">
+        <div class="q-text">${q.text}<span class="req-star">*</span></div>
         <input type="${q.inputType}" value="${val || ""}" oninput="setAnswer('${q.id}', this.value)" placeholder="${q.text}">
+        ${errMsg}
       </div>
     `;
   }
 
   if (q.type === "pills") {
     return `
-      <div class="q">
-        <div class="q-text">${q.text}</div>
+      <div class="q ${hasError ? 'has-error' : ''}">
+        <div class="q-text">${q.text}<span class="req-star">*</span></div>
         <div class="pill-row">
           ${q.options.map(opt => `
             <div class="pill ${val === opt ? 'selected' : ''}" onclick="setAnswer('${q.id}', '${opt.replace(/'/g,"\\'")}')">${opt}</div>
           `).join("")}
         </div>
+        ${errMsg}
       </div>
     `;
   }
 
   if (q.type === "slider") {
-    const current = val !== undefined ? val : null;
-    const displayVal = current !== null ? current : q.min;
+    const touched = !!state.touched[q.id];
+    const displayVal = touched ? val : q.min;
     const fillPct = ((displayVal - q.min) / (q.max - q.min)) * 100;
     return `
-      <div class="q">
-        <div class="q-text">${q.text}</div>
+      <div class="q ${hasError ? 'has-error' : ''}">
+        <div class="q-text">${q.text}<span class="req-star">*</span></div>
         <div class="slider-wrap">
           <input type="range" min="${q.min}" max="${q.max}" step="1" value="${displayVal}"
             style="--fill:${fillPct}%"
-            oninput="handleSliderInput('${q.id}', this)" >
+            oninput="handleSliderInput('${q.id}', this)">
           <div class="slider-track-labels"><span>${q.low}</span><span>${q.high}</span></div>
-          <span class="slider-value-badge ${current===null?'untouched':''}" id="badge-${q.id}">${current!==null ? displayVal : 'Slide to answer'}</span>
+          <span class="slider-value-badge ${touched?'':'untouched'}" id="badge-${q.id}">${touched ? displayVal : 'Slide to answer'}</span>
         </div>
+        ${errMsg}
       </div>
     `;
   }
 
   if (q.type === "slider5" || q.type === "slider4") {
     const max = q.type === "slider5" ? 4 : 3;
-    const current = val !== undefined ? val : null;
-    const displayVal = current !== null ? current : 0;
+    const touched = !!state.touched[q.id];
+    const displayVal = touched ? val : 0;
     const fillPct = (displayVal / max) * 100;
     return `
-      <div class="q">
-        <div class="q-text">${q.text}</div>
+      <div class="q ${hasError ? 'has-error' : ''}">
+        <div class="q-text">${q.text}<span class="req-star">*</span></div>
         <div class="slider-wrap">
           <input type="range" min="0" max="${max}" step="1" value="${displayVal}"
             style="--fill:${fillPct}%"
             oninput="handleSliderInput('${q.id}', this, ${JSON.stringify(q.labels)})">
           <div class="slider-track-labels"><span>${q.labels[0]}</span><span>${q.labels[q.labels.length-1]}</span></div>
-          <span class="slider-value-badge ${current===null?'untouched':''}" id="badge-${q.id}">${current!==null ? q.labels[displayVal] : 'Slide to answer'}</span>
+          <span class="slider-value-badge ${touched?'':'untouched'}" id="badge-${q.id}">${touched ? q.labels[displayVal] : 'Slide to answer'}</span>
         </div>
+        ${errMsg}
       </div>
     `;
   }
 
   if (q.type === "text") {
     return `
-      <div class="q">
-        <div class="q-text">${q.text}</div>
+      <div class="q ${hasError ? 'has-error' : ''}">
+        <div class="q-text">${q.text}<span class="req-star">*</span></div>
         <textarea oninput="setAnswer('${q.id}', this.value)">${val || ""}</textarea>
+        ${errMsg}
       </div>
     `;
   }
@@ -571,53 +698,78 @@ function handleSliderInput(id, el, labels) {
     badge.classList.remove('untouched');
   }
   state.answers[id] = v;
+  state.touched[id] = true;
+  if (currentErrors.has(id)) {
+    currentErrors.delete(id);
+    const qEl = badge ? badge.closest('.q') : null;
+    if (qEl) {
+      qEl.classList.remove('has-error');
+      const msg = qEl.querySelector('.q-error-msg');
+      if (msg) msg.remove();
+    }
+  }
+  saveProgress();
 }
 
 function setAnswer(id, value) {
   state.answers[id] = value;
-  // re-render only for pills/text to reflect selection, but avoid full re-render on every keystroke for text inputs
+  saveProgress();
+  if (currentErrors.has(id) && value && String(value).trim()) {
+    currentErrors.delete(id);
+  }
   if (event && event.type === "click") {
     render();
+  } else if (currentErrors.has(id) === false && document.querySelector(`[data-q-id="${id}"]`)) {
+    // no-op, error already cleared visually on next render
   }
 }
 
 function prevStep() {
-  if (state.step > 0) { state.step--; render(); }
+  if (state.step > 0) { state.step--; currentErrors = new Set(); saveProgress(); render(); }
 }
 
 function validateStep() {
   const sec = sections[state.step];
-  if (sec.key === "identity") {
-    const a = state.answers;
-    if (!a.name || !a.name.trim()) { alert("Please enter your name."); return false; }
-    if (!a.position || !a.position.trim()) { alert("Please enter your position."); return false; }
-    if (!a.email || !a.email.trim() || !a.email.includes("@")) { alert("Please enter a valid email."); return false; }
-  }
-  return true;
+  const missing = [];
+  sec.questions.forEach(q => {
+    if (!isAnswered(q)) missing.push(q.id);
+  });
+  currentErrors = new Set(missing);
+  return missing.length === 0;
 }
 
 async function nextStep() {
-  if (!validateStep()) return;
+  if (!validateStep()) {
+    render();
+    return;
+  }
 
   const isLast = state.step === sections.length - 1;
 
-  // After identity section, check for duplicate email before proceeding
   if (sections[state.step].key === "identity") {
+    const email = state.answers.email.trim();
+    if (!email.includes("@")) {
+      currentErrors = new Set(["email"]);
+      render();
+      return;
+    }
     view = "checking"; render();
-    const exists = await checkEmailExists(state.answers.email.trim().toLowerCase());
+    const exists = await checkEmailExists(email.toLowerCase());
     if (exists === true) {
+      clearProgress();
       view = "blocked"; render();
       return;
     }
-    // exists === false or null (couldn't verify) -> proceed
     state.step++;
     view = "survey";
+    saveProgress();
     render();
     return;
   }
 
   if (!isLast) {
     state.step++;
+    saveProgress();
     render();
     return;
   }
@@ -649,6 +801,7 @@ async function nextStep() {
     view = "error"; render();
     return;
   }
+  clearProgress();
   window._lastScores = scores;
   view = scores.selfHarmFlag ? "selfharm" : "done";
   render();
@@ -656,19 +809,20 @@ async function nextStep() {
 
 function renderSubmitting() {
   app.innerHTML = `
-    <div class="wrap" style="padding-top:80px; text-align:center;">
+    <div class="wrap" style="padding-top:100px; text-align:center;">
       <div class="spinner"></div>
-      <p style="color:var(--gray); margin-top:16px; font-size:14px;">Submitting your response...</p>
+      <p style="color:var(--gray-light); margin-top:18px; font-size:14px;">Submitting your response…</p>
     </div>
   `;
 }
 
 function renderSelfHarm() {
   app.innerHTML = `
-    <div class="wrap" style="padding-top:40px;">
+    <div class="wrap" style="padding-top:50px;">
       <div class="crisis-box">
         <h3>Please reach out for support</h3>
         <p>Thank you for your honesty. One of your answers suggests you may be going through something very difficult right now. You don't have to face this alone.</p>
+        <p><strong>Trust's Health Concierge:</strong> +6011-6976 9233</p>
         <p><strong>Befrienders KL:</strong> 03-7627 2929 (24 hours)</p>
         <p><strong>Talian Kasih:</strong> 15999 (24 hours)</p>
         <p><strong>MIASA Mental Health Helpline:</strong> 1-800-180-066</p>
@@ -682,11 +836,11 @@ function renderSelfHarm() {
 
 function renderDone() {
   app.innerHTML = `
-    <div class="wrap" style="padding-top:60px; text-align:center;">
+    <div class="wrap" style="padding-top:70px; text-align:center;">
       <div class="card">
-        <h2 style="color:var(--teal);">Thank you</h2>
-        <p style="font-size:14px;color:var(--gray);">Your response has been submitted and recorded.</p>
-        <p style="font-size:13px;color:var(--gray);margin-top:16px;">If you are experiencing significant distress, please don't wait — reach out to Befrienders KL (03-7627 2929) or Talian Kasih (15999).</p>
+        <h2 style="color:var(--blue); font-size:22px;">Thank you</h2>
+        <p style="font-size:14.5px;color:var(--gray);">Your response has been submitted and recorded. We appreciate you taking the time to share this with us.</p>
+        <p style="font-size:13px;color:var(--gray-light);margin-top:16px;">If you are experiencing significant distress, please don't wait — reach out to Trust's Health Concierge (+6011-6976 9233), Befrienders KL (03-7627 2929), or Talian Kasih (15999).</p>
       </div>
     </div>
   `;
